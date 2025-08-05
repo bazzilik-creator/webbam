@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Webbam - Home</title>
+    <style>
+        /* Basic Reset */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-image: url('bilili/webbam-pic.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            color: #333;
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(0, 0, 0, 0.959);
+            color: rgb(255, 255, 255);
+            display: flex;
+            align-items: center;
+            padding: 15px 30px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1100;
+            flex-direction: row;
+            justify-content: space-between;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.4s ease;
+        }
+
+        header.scrolled {
+            background-color: rgba(0, 0, 0, 0.95);
+            padding: 10px 30px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        
+        }
+              header img.logo {
+            height: 45px;
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+
+         
+    
+        header .menu-btn {
+            font-size: 30px;
+            cursor: pointer;
+            color: white;
+            user-select: none;
+            transition: all 0.3s ease;
+            background: rgba(255, 102, 0, 0.2);
+            border-radius: 5px;
+            padding: 5px 10px;
+        }
+
+        header .menu-btn:hover {
+            color: #ff6600;
+            transform: scale(1.1);
+            background: rgba(255, 102, 0, 0.3);
+        }
+
+        /* Top Slide Menu Styles */
+        .topnav {
+            height: 0;
+            width: 100%;
+            position: fixed;
+            z-index: 1050;
+            top: 0;
+            left: 0;
+            background-color: rgba(17, 17, 17, 0.403);
+            overflow: hidden;
+            transition: height 0.5s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 70px;
+            backdrop-filter: blur(10px);
+        }
+
+        .topnav a {
+            padding: 18px 25px;
+            text-decoration: none;
+            font-size: 22px;
+            color: #ddd;
+            display: block;
+            transition: all 0.3s ease;
+            width: 100%;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .topnav a:before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background-color: #ff6600;
+            transition: width 0.4s ease;
+        }
+
+        .topnav a:hover:before {
+            width: 100%;
+        }
+
+        .topnav a:hover {
+            color: #ff6600;
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: translateX(10px);
+        }
+
+        .topnav .closebtn {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 40px;
+            color: #fff;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .topnav .closebtn:hover {
+            color: #ff6600;
+            transform: rotate(90deg);
+        }
+
+        /* Main content */
+        #main {
+            transition: margin-top 0.5s;
+            padding: 120px 20px 40px 20px;
+            margin-top: 0;
+            flex-grow: 1;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(11, 118, 184, 0.948) 0%, rgba(115, 51, 179, 0.419) 100%);
+            color: white;
+            text-align: center;
+            padding: 180px 30px;
+            border-radius: 15px;
+            margin-bottom: 50px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+            animation: fadeInUp 1.2s ease-out;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 102, 0, 0.3), transparent);
+            transition: 0.5s;
+        }
+
+        .hero:hover::before {
+            left: 100%;
+        }
+
+        .hero h1 {
+            font-size: 3.8em;
+            margin-bottom: 25px;
+            text-shadow: 0 3px 12px rgba(0, 0, 0, 0.5);
+            animation: textPop 1s ease-out;
+            background: linear-gradient(to right, #ff9900, #ff6600);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.7em;
+            margin-bottom: 40px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+            line-height: 1.6;
+        }
+
+        .hero button {
+            background: linear-gradient(45deg, #ff6600, #ff3300);
+            border: none;
+            padding: 18px 45px;
+            font-size: 1.3em;
+            color: white;
+            border-radius: 35px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            box-shadow: 0 8px 20px rgba(255, 102, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .hero button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(255, 102, 0, 0.7);
+            letter-spacing: 1.5px;
+        }
+
+        .hero button:active {
+            transform: translateY(2px);
+        }
+
+        .hero button::after {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -60%;
+            width: 25px;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.4);
+            transform: rotate(30deg);
+            transition: all 1s;
+        }
+
+        .hero button:hover::after {
+            left: 120%;
+        }
+
+        /* Slideshow container */
+        .slideshow-container {
+            max-width: 1200px;
+            position: relative;
+            margin: 0 auto 60px auto;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            height: 550px;
+            animation: fadeIn 1.5s ease-in;
+        }
+
+        /* Slides */
+        .mySlides {
+            display: none;
+            width: 100%;
+            height: 550px;
+            object-fit: cover;
+            animation: fade 1.5s;
+        }
+
+        @keyframes fade {
+            from {opacity: .4}
+            to {opacity: 1}
+        }
+
+        /* Next & previous buttons */
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 28px;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+            background-color: rgba(0,0,0,0.6);
+            transition: all 0.4s ease;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .next {
+            right: 30px;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .prev {
+            left: 30px;
+        }
+
+        .prev:hover, .next:hover {
+            background-color: rgba(255, 102, 0, 0.9);
+            transform: scale(1.15);
+        }
+
+        /* The dots/bullets/indicators */
+        .dot-container {
+            text-align: center;
+            padding: 25px;
+        }
+
+        .dot {
+            cursor: pointer;
+            height: 18px;
+            width: 18px;
+            margin: 0 8px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: all 0.4s ease;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+        }
+
+        .dot:hover {
+            transform: scale(1.2);
+        }
+
+        .active, .dot:hover {
+            background-color: #ff6600;
+            transform: scale(1.3);
+        }
+
+        /* Features Grid */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 35px;
+            margin: 70px 0;
+            padding: 0 30px;
+            align-items: start;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.92);
+            border-radius: 15px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            transition: all 0.5s ease;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 102, 0, 0.2);
+            animation: slideInUp 0.8s ease-out;
+            transform: translateY(50px);
+            opacity: 0;
+        }
+
+        .feature-card:nth-child(1) {
+            animation-delay: 0.2s;
+        }
+
+        .feature-card:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+
+        .feature-card:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+
+        .feature-card.appear {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-15px) !important;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+            border-color: rgba(255, 102, 0, 0.5);
+        }
+
+        .feature-card i {
+            font-size: 3.5em;
+            color: #ff6600;
+            margin-bottom: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover i {
+            transform: rotate(10deg) scale(1.2);
+        }
+
+        .feature-card h3 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            color: #222;
+        }
+
+        .feature-card p {
+            color: #555;
+            line-height: 1.7;
+            font-size: 1.1em;
+        }
+
+        /* Intro Band */
+        .intro-band {
+            background: linear-gradient(90deg, rgba(255, 102, 0, 0.92) 0%, rgba(255, 51, 0, 0.92) 100%);
+            color: white;
+            text-align: center;
+            padding: 35px 30px;
+            font-size: 1.4em;
+            border-radius: 12px;
+            max-width: 1200px;
+            margin: 0 auto 70px auto;
+            box-shadow: 0 12px 35px rgba(0,0,0,0.4);
+            overflow: hidden;
+            position: relative;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .intro-band .scrolling-text {
+            display: inline-block;
+            padding-left: 100%;
+            animation: scroll-left 25s linear infinite;
+            white-space: nowrap;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .intro-band .scrolling-text:hover {
+            animation-play-state: paused;
+        }
+
+        /* Footer */
+        footer {
+            background-color: rgba(17, 17, 17, 0.95);
+            color: white;
+            text-align: center;
+            padding: 40px 30px;
+            font-size: 16px;
+            margin-top: auto;
+            backdrop-filter: blur(10px);
+            border-top: 2px solid rgba(255, 102, 0, 0.5);
+        }
+
+        /* Footer Grid */
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto 35px;
+            text-align: left;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 25px;
+            color: #ff6600;
+            position: relative;
+            padding-bottom: 15px;
+            font-size: 1.5em;
+        }
+
+        .footer-section h3::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: #ff6600;
+            border-radius: 2px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 15px;
+        }
+
+        .footer-section ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            padding-left: 15px;
+        }
+
+        .footer-section ul li a::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #ff6600;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: #ff6600;
+            padding-left: 25px;
+        }
+
+        .footer-section ul li a:hover::before {
+            opacity: 1;
+        }
+
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .social-icon {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-icon img {
+            width: 60%;
+            height: 60%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .social-icon:hover {
+            transform: translateY(-5px);
+            background: #ff6600;
+            box-shadow: 0 5px 15px rgba(255, 102, 0, 0.4);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes textPop {
+            0% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            70% {
+                transform: scale(1.05);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes scroll-left {
+            0% {
+                transform: translateX(0%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        @keyframes slideInUp {
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+
+        /* Responsive */
+        @media screen and (max-width: 992px) {
+            .hero h1 {
+                font-size: 3em;
+            }
+            .hero p {
+                font-size: 1.4em;
+            }
+            .slideshow-container {
+                height: 450px;
+            }
+            .mySlides {
+                height: 450px;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            header {
+                padding: 12px 20px;
+            }
+            .hero {
+                padding: 120px 20px;
+                border-radius: 10px;
+            }
+            .hero h1 {
+                font-size: 2.5em;
+            }
+            .hero p {
+                font-size: 1.2em;
+            }
+            .hero button {
+                padding: 15px 35px;
+                font-size: 1.1em;
+            }
+            .features {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 25px;
+                padding: 0 15px;
+            }
+            .feature-card {
+                padding: 30px 20px;
+            }
+            .slideshow-container {
+                height: 350px;
+                border-radius: 10px;
+            }
+            .mySlides {
+                height: 350px;
+            }
+            .prev, .next {
+                width: 50px;
+                height: 50px;
+                font-size: 24px;
+            }
+            .intro-band {
+                font-size: 1.1em;
+                padding: 25px 20px;
+            }
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            header {
+                padding: 10px 15px;
+            }
+            header img.logo {
+                height: 35px;
+            }
+            .hero {
+                padding: 80px 15px;
+            }
+            .hero h1 {
+                font-size: 2em;
+            }
+            .hero p {
+                font-size: 1em;
+            }
+            .hero button {
+                padding: 12px 25px;
+                font-size: 1em;
+            }
+            .slideshow-container {
+                height: 250px;
+            }
+            .mySlides {
+                height: 250px;
+            }
+            .prev, .next {
+                width: 40px;
+                height: 40px;
+                font-size: 20px;
+            }
+            .dot {
+                height: 12px;
+                width: 12px;
+                margin: 0 5px;
+            }
+            footer {
+                padding: 30px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="bilili/webbam-logo1.png" alt="Logo" class="logo" />
+        <span class="menu-btn" onclick="openNav()">&#9776; Menu</span>
+    </header>
+
+    <div id="myTopnav" class="topnav">
+        <span class="closebtn" onclick="closeNav()">&times;</span>
+        <a href="index.html" onclick="closeNav()">Home</a>
+        <a href="services.html" onclick="closeNav()">Services</a>
+        <a href="about.html" onclick="closeNav()">About</a>
+        <a href="contact.html" onclick="closeNav()">Contact</a>
+    </div>
+
+    <div id="main">
+        <div class="hero">
+            <h1>Welcome to Webbam</h1>
+            <p>Your partner in professional web design and IT services.</p>
+            <button onclick="window.location.href='services.html'">Our Services</button>
+        </div>
+
+        <div class="slideshow-container">
+            <img class="mySlides" src="bilili/business.jpg" alt="Business Solutions" />
+            <img class="mySlides" src="bilili/clouds.jpg" alt="Cloud Services" />
+            <img class="mySlides" src="bilili/coding.jpg" alt="Web Development" />
+            <img class="mySlides" src="bilili/e-commerce.jpg" alt="E-commerce Solutions" />
+            <img class="mySlides" src="bilili/laptop.jpg" alt="IT Consulting" />
+
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+        
+        <div class="dot-container">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot" onclick="currentSlide(4)"></span>
+            <span class="dot" onclick="currentSlide(5)"></span>
+        </div>
+
+        <div class="features">
+            <div class="feature-card">
+                <i>💻</i>
+                <h3>Web Design</h3>
+                <p>Creating stunning, responsive websites that look great on all devices and help you achieve your business goals.</p>
+            </div>
+            <div class="feature-card">
+                <i>📱</i>
+                <h3>App Development</h3>
+                <p>Building iOS and Android applications that provide exceptional user experiences and drive engagement.</p>
+            </div>
+            <div class="feature-card">
+                <i>🛒</i>
+                <h3>E-commerce Solutions</h3>
+                <p>Complete online store setups with secure payment gateways, inventory management, and marketing tools.</p>
+            </div>
+        </div>
+        
+        <div class="intro-band">
+            <p class="scrolling-text">Website Design and Development, IT Services, E-commerce Solutions, IOS & ANDROID App Development, Digital Marketing, Full online Support(24/7) and more... <img src="bilili/webbam.png" width="50" height="30" alt=""></p>
+        </div>
+    </div>
+    
+
+    <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Webbam Design & IT Services</h3>
+        <p>For all your digital needs.</p>
+        <p>We specialize in web design, e-commerce solutions, and IT consulting to help your business thrive in the digital age.</p>
+      </div>
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul>
+            <li><a href="services.html">Services</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Contact Information</h3>
+        <p><strong>Phone:</strong> +90 536 520 63 05</p>
+        <p><strong>Email:</strong> info@webbam.com</p>
+        <p><strong>Address:</strong> Istanbul, Turkey</p>
+      </div>
+    </div>
+    
+     <div class="footer-social">
+      <a href="https://www.facebook.com/share/1Av67GdS3f/?mibextid=wwXIfr" target="_blank" aria-label="Facebook" class="social-icon facebook">
+        <img src="https://cdn-icons-png.flaticon.com/24/733/733547.png" alt="Facebook" />
+      </a>
+      <a href="https://www.instagram.com/webbam2025?igsh=dHJrcmF4bXU3MGEy" target="_blank" aria-label="Instagram" class="social-icon instagram">
+        <img src="https://cdn-icons-png.flaticon.com/24/733/733558.png" alt="Instagram" />
+      </a>
+ 
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2024 Webbam Design & IT Services. All rights reserved.</p>
+    </div>
+  </footer>
+
+
+    <script>
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        // Initialize feature cards animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const featureCards = document.querySelectorAll('.feature-card');
+            setTimeout(() => {
+                featureCards.forEach(card => {
+                    card.classList.add('appear');
+                });
+            }, 300);
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        function openNav() {
+            document.getElementById("myTopnav").style.height = "300px";
+            document.getElementById("main").style.marginTop = "300px";
+        }
+
+        function closeNav() {
+            document.getElementById("myTopnav").style.height = "0";
+            document.getElementById("main").style.marginTop = "0";
+        }
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            let dots = document.getElementsByClassName("dot");
+            if (n > slides.length) {slideIndex = 1}
+            if (n < 1) {slideIndex = slides.length}
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex-1].style.display = "block";
+            dots[slideIndex-1].className += " active";
+        }
+
+        // Automatic slideshow
+        setInterval(function() {
+            plusSlides(1);
+        }, 5000); // Change slide every 5 seconds
+    </script>
+</body>
+</html>
