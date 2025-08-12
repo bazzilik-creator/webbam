@@ -1,0 +1,197 @@
+<!-- Testimonials Section -->
+<section id="testimonials" class="testimonials-section">
+    <div class="container">
+        <h2>What Our Clients Say</h2>
+        <p class="section-subtitle">Real feedback from satisfied customers who trusted Webbam with their digital needs</p>
+        
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    <div class="quote-icon">"</div>
+                    <p class="testimonial-text">Webbam transformed our online presence completely. Their web design team created a stunning e-commerce platform that increased our sales by 150% within just 3 months. The attention to detail and customer support has been exceptional throughout the entire process.</p>
+                </div>
+                <div class="testimonial-author">
+                    <img src="https://via.placeholder.com/80x80/FF6600/FFFFFF?text=SM" alt="Sarah Mitchell" class="author-avatar">
+                    <div class="author-info">
+                        <h4>Sarah Mitchell</h4>
+                        <span>CEO, TechGear Solutions</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    <div class="quote-icon">"</div>
+                    <p class="testimonial-text">The mobile app Webbam developed for our restaurant chain exceeded all expectations. The user interface is intuitive, the performance is smooth, and our customer engagement has improved dramatically. Their team was professional and delivered on time.</p>
+                </div>
+                <div class="testimonial-author">
+                    <img src="https://via.placeholder.com/80x80/FF6600/FFFFFF?text=JD" alt="James Davis" class="author-avatar">
+                    <div class="author-info">
+                        <h4>James Davis</h4>
+                        <span>Marketing Director, FoodExpress</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    <div class="quote-icon">"</div>
+                    <p class="testimonial-text">Working with Webbam on our IT infrastructure was the best decision we made. They provided 24/7 support and helped us migrate to cloud services seamlessly. Their expertise saved us thousands in operational costs while improving our system reliability.</p>
+                </div>
+                <div class="testimonial-author">
+                    <img src="https://via.placeholder.com/80x80/FF6600/FFFFFF?text=AL" alt="Anna Lopez" class="author-avatar">
+                    <div class="author-info">
+                        <h4>Anna Lopez</h4>
+                        <span>Operations Manager, Global Logistics</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+/* Testimonials Section Styles */
+.testimonials-section {
+    padding: 80px 30px;
+    background: rgba(255, 255, 255, 0.92);
+    margin: 60px 0;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 102, 0, 0.2);
+}
+
+.testimonials-section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.testimonials-section h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #222;
+    font-size: 2.5em;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.testimonials-section h2::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(to right, #ff6600, #ff3300);
+    border-radius: 2px;
+}
+
+.section-subtitle {
+    text-align: center;
+    font-size: 1.3em;
+    color: #666;
+    margin-bottom: 50px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
+    margin-top: 50px;
+}
+
+.testimonial-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    padding: 40px 30px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    transition: all 0.4s ease;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 102, 0, 0.1);
+    transform: translateY(30px);
+    opacity: 0;
+    animation: slideInUp 0.8s ease-out forwards;
+}
+
+.testimonial-card:nth-child(1) { animation-delay: 0.2s; }
+.testimonial-card:nth-child(2) { animation-delay: 0.4s; }
+.testimonial-card:nth-child(3) { animation-delay: 0.6s; }
+
+.testimonial-card:hover {
+    transform: translateY(-10px) !important;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    border-color: rgba(255, 102, 0, 0.4);
+}
+
+.testimonial-content {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.quote-icon {
+    font-size: 4em;
+    color: #ff6600;
+    opacity: 0.3;
+    position: absolute;
+    top: -20px;
+    left: -10px;
+    font-family: serif;
+}
+
+.testimonial-text {
+    font-size: 1.1em;
+    line-height: 1.7;
+    color: #555;
+    font-style: italic;
+    padding-left: 20px;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.author-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #ff6600;
+}
+
+.author-info h4 {
+    color: #222;
+    margin-bottom: 5px;
+    font-size: 1.2em;
+}
+
+.author-info span {
+    color: #666;
+    font-size: 0.9em;
+}
+
+@keyframes slideInUp {
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .testimonial-card {
+        padding: 30px 20px;
+    }
+}
+</style>

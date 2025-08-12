@@ -28,7 +28,7 @@
 
         /* Header */
         header {
-            background-color: rgba(0, 0, 0, 0.332);
+            background-color: rgba(0, 0, 0, 0.351);
             color: rgb(255, 255, 255);
             display: flex;
             align-items: center;
@@ -50,7 +50,7 @@
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
         
         }
-              header img.logo {
+        header img.logo {
             height: 45px;
             transition: all 0.3s ease;
             animation: pulse 2s infinite;
@@ -609,6 +609,238 @@
             to {opacity: 1;}
         }
 
+        /* Testimonials Section Styles */
+        .testimonials-section {
+            padding: 80px 30px;
+            background: rgba(255, 255, 255, 0.92);
+            margin: 60px 0;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 102, 0, 0.2);
+        }
+
+        .testimonials-section .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonials-section h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #222;
+            font-size: 2.5em;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .testimonials-section h2::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, #ff6600, #ff3300);
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.3em;
+            color: #666;
+            margin-bottom: 50px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 40px 30px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 102, 0, 0.1);
+            transform: translateY(30px);
+            opacity: 0;
+            animation: slideInUp 0.8s ease-out forwards;
+        }
+
+        .testimonial-card:nth-child(1) { animation-delay: 0.2s; }
+        .testimonial-card:nth-child(2) { animation-delay: 0.4s; }
+        .testimonial-card:nth-child(3) { animation-delay: 0.6s; }
+
+        .testimonial-card:hover {
+            transform: translateY(-10px) !important;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            border-color: rgba(255, 102, 0, 0.4);
+        }
+
+        .testimonial-content {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .quote-icon {
+            font-size: 4em;
+            color: #ff6600;
+            opacity: 0.3;
+            position: absolute;
+            top: -20px;
+            left: -10px;
+            font-family: serif;
+        }
+
+        .testimonial-text {
+            font-size: 1.1em;
+            line-height: 1.7;
+            color: #555;
+            font-style: italic;
+            padding-left: 20px;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #ff6600;
+        }
+
+        .author-info h4 {
+            color: #222;
+            margin-bottom: 5px;
+            font-size: 1.2em;
+        }
+
+        .author-info span {
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        /* FAQs Section Styles */
+        .faqs-section {
+            padding: 80px 30px;
+            background: rgba(255, 255, 255, 0.92);
+            margin: 60px 0;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 102, 0, 0.2);
+        }
+
+        .faqs-section .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .faqs-section h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #222;
+            font-size: 2.5em;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .faqs-section h2::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, #ff6600, #ff3300);
+            border-radius: 2px;
+        }
+
+        .faqs-container {
+            margin-top: 50px;
+        }
+
+        .faq-item {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 102, 0, 0.1);
+        }
+
+        .faq-item:hover {
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+            border-color: rgba(255, 102, 0, 0.3);
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background-color: rgba(255, 102, 0, 0.05);
+        }
+
+        .faq-question h3 {
+            color: #222;
+            font-size: 1.2em;
+            margin: 0;
+            font-weight: 600;
+        }
+
+        .faq-toggle {
+            font-size: 1.5em;
+            color: #ff6600;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+            background-color: rgba(255, 102, 0, 0.02);
+        }
+
+        .faq-answer p {
+            padding: 0 30px 25px;
+            color: #555;
+            line-height: 1.7;
+            font-size: 1.1em;
+            margin: 0;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+        }
+
         /* Responsive */
         @media screen and (max-width: 992px) {
             .hero h1 {
@@ -670,6 +902,23 @@
             .footer-content {
                 grid-template-columns: 1fr;
                 gap: 30px;
+            }
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .testimonial-card {
+                padding: 30px 20px;
+            }
+            .faq-question {
+                padding: 20px 15px;
+            }
+            .faq-question h3 {
+                font-size: 1.1em;
+            }
+            .faq-answer p {
+                padding: 0 15px 20px;
+                font-size: 1em;
             }
         }
 
@@ -776,7 +1025,128 @@
         <div class="intro-band">
             <p class="scrolling-text">Website Design and Development, IT Services, E-commerce Solutions, IOS & ANDROID App Development, Digital Marketing, Full online Support(24/7) and more... <img src="bilili/webbam-logo1.png" width="50" height="30" alt=""></p>
         </div>
-    </div>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="testimonials-section">
+            <div class="container">
+                <h2>What Our Clients Say</h2>
+                <p class="section-subtitle">Real feedback from satisfied customers who trusted Webbam with their digital needs</p>
+                
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="quote-icon">"</div>
+                            <p class="testimonial-text">Webbam transformed our online presence completely. Their web design team created a stunning e-commerce platform that increased our sales by 150% within just 3 months. The attention to detail and customer support has been exceptional throughout the entire process.</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="https://via.placeholder.com/80x80/FF6600/FFFFFF?text=SM" alt="Sarah Mitchell" class="author-avatar">
+                            <div class="author-info">
+                                <h4>Sarah Mitchell</h4>
+                                <span>CEO, TechGear Solutions</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="quote-icon">"</div>
+                            <p class="testimonial-text">The mobile app Webbam developed for our restaurant chain exceeded all expectations. The user interface is intuitive, the performance is smooth, and our customer engagement has improved dramatically. Their team was professional and delivered on time.</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="https://via.placeholder.com/80x80/FF6600/FFFFFF?text=JD" alt="James Davis" class="author-avatar">
+                            <div class="author-info">
+                                <h4>James Davis</h4>
+                                <span>Marketing Director, FoodExpress</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="quote-icon">"</div>
+                            <p class="testimonial-text">Working with Webbam on our IT infrastructure was the best decision we made. They provided 24/7 support and helped us migrate to cloud services seamlessly. Their expertise saved us thousands in operational costs while improving our system reliability.</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="https://via.placeholder.com/80x80/FF6600/FFFFFF?text=AL" alt="Anna Lopez" class="author-avatar">
+                            <div class="author-info">
+                                <h4>Anna Lopez</h4>
+                                <span>Operations Manager, Global Logistics</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQs Section -->
+        <section id="faqs" class="faqs-section">
+            <div class="container">
+                <h2>Frequently Asked Questions</h2>
+                <p class="section-subtitle">Find answers to common questions about our services and processes</p>
+                
+                <div class="faqs-container">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>How long does it take to build a website?</h3>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>The timeline depends on the complexity and features required. A basic website typically takes 2-4 weeks, while complex e-commerce sites or custom applications may take 6-12 weeks. We'll provide a detailed timeline after discussing your specific requirements.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Do you offer website maintenance and support?</h3>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes! We offer comprehensive maintenance packages including security updates, content updates, performance optimization, and 24/7 technical support. Our support team is always available to ensure your website runs smoothly.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Can you help with e-commerce setup and payment processing?</h3>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Absolutely! We specialize in e-commerce solutions and can integrate secure payment gateways like PayPal, Stripe, and credit card processing. We'll also help with inventory management, shipping calculations, and tax configurations.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Will my website be mobile-friendly?</h3>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>All websites we create are fully responsive and optimized for mobile devices. We use modern responsive design techniques to ensure your site looks great and functions perfectly on smartphones, tablets, and desktop computers.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Do you provide SEO services?</h3>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes, we include basic SEO optimization in all our web design packages. This includes proper meta tags, structured data, fast loading speeds, and mobile optimization. We also offer advanced SEO services for better search engine rankings.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>How much does a website cost?</h3>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Our pricing varies based on your specific needs. Basic websites start from $1,500, e-commerce sites from $3,000, and custom applications are priced based on complexity. We provide detailed quotes after understanding your requirements.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     
 
     <!-- Footer -->
@@ -797,8 +1167,8 @@
       </div>
       <div class="footer-section">
         <h3>Contact Information</h3>
-        <p><strong>Phone & WhatApp:</strong> +90 536 520 63 05</p>
-         <p><strong>Email:</strong> bazziliksamba@gmail.com</p>
+        <p><strong>Phone:</strong> +90 536 520 63 05</p>
+        <p><strong>Email:</strong> bazziliksamba@gmail.com</p>
         <p><strong>Address:</strong> Istanbul, Turkey</p>
       </div>
     </div>
@@ -881,6 +1251,37 @@
         setInterval(function() {
             plusSlides(1);
         }, 5000); // Change slide every 5 seconds
+
+        // FAQ Accordion Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                
+                question.addEventListener('click', () => {
+                    // Close other open FAQs
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item && otherItem.classList.contains('active')) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    
+                    // Toggle current FAQ
+                    item.classList.toggle('active');
+                });
+            });
+        });
+
+        // Initialize testimonials animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const testimonialCards = document.querySelectorAll('.testimonial-card');
+            setTimeout(() => {
+                testimonialCards.forEach(card => {
+                    card.classList.add('appear');
+                });
+            }, 300);
+        });
     </script>
 </body>
 </html>
