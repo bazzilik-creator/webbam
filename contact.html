@@ -677,7 +677,10 @@
             const recipient = 'infowebbam@webbam.org';
             const body = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
             const mailtoURL = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-
+            
+            // Show success message
+            showMessage('Your email client should open with a pre-filled message. We have received your email and will cantact you as soon as possible', 'success');
+            
             // Open the user's default email client
             window.location.href = mailtoURL;
 
