@@ -666,17 +666,21 @@
         // Form submission handling
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            
+
             // Get form values
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
             const subject = document.getElementById('subject').value;
             const message = document.getElementById('message').value;
-            
-            // In a real application, you would send this data to a server
-            // For now, we'll just show an alert
-            alert(`Thank you ${name} for your message! We will contact you at ${email} as soon as possible.`);
-            
+
+            // Construct mailto URL
+            const recipient = 'infowebbam@webbam.org';
+            const body = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
+            const mailtoURL = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+            // Open the user's default email client
+            window.location.href = mailtoURL;
+
             // Reset form
             this.reset();
         });
